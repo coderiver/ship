@@ -1,0 +1,75 @@
+.progress
+  &__bar
+    height: 30vh
+    min-height: 275px
+    width: 2px
+    background: white
+    //border-radius: 2px
+
+  &__progress
+    position: absolute
+    top: 0
+    left: 0
+    height: 30vh
+    min-height: 275px
+    width: 2px
+    background: var(--primary-blue)
+    border-radius: 4px
+    transform-origin: top
+    z-index: 3
+
+  &__dot
+    position: absolute
+    top: -30px
+    left: -30px
+    width: 62px
+    height: 62px
+    transform: scale(0.1)
+    border-radius: 50%
+    color: transparent
+    transform-origin: center center
+    background: white
+    font-size: 15px
+    line-height: 62px
+    text-align: center
+    z-index: 5
+    cursor: pointer
+    transition: background 0.5s cubic-bezier(.215,.61,.355,1), color 0.5s cubic-bezier(.215,.61,.355,1), transform 0.5s cubic-bezier(.215,.61,.355,1)
+
+    &:nth-child(3)
+      top: calc(20% - 30px)
+    &:nth-child(4)
+      top: calc(40% - 30px)
+    &:nth-child(5)
+      top: calc(60% - 30px)
+    &:nth-child(6)
+      top: calc(80% - 30px)
+    &:nth-child(7)
+      top: calc(100% - 30px)
+
+    &.is-active
+      background: linear-gradient(39deg, rgb(11 31 49) 19.95%, rgb(33, 168, 175) 116.09%)
+      color: white
+      transform: scale(1)
+
+    &:not(.is-active):hover
+      outline: rgba(255, 255, 255, 0.4) solid 50px
+      cursor: pointer
+      outline-offset: 30px
+
+  +mobile()
+    transform: rotate(-90deg) scale(0.75)
+    transform-origin: top left
+    height: 70vw
+    top: calc(100vh - 40px)
+    top: calc(100dvh - 40px)
+    left: 20px
+    &__progress
+      height: 70vw
+    &__bar
+      height: 70vw
+    &__dot
+      transform: scale(0.2) rotate(90deg)
+      &.is-active
+        transform: scale(1) rotate(90deg)
+

@@ -1,0 +1,64 @@
+html, body
+  margin: 0
+  padding: 0
+  font-family: 'Manrope', sans-serif
+  font-size: 16px
+  font-weight: 400
+  line-height: 1.5
+  color: #333
+  background-color: #000
+  -ms-overflow-style: none
+  scrollbar-width: none
+  scroll-behavior: smooth
+  width: 100vw
+
+html
+  scroll-snap-type: y mandatory
+
+body
+  width: 100vw
+  overflow-x: hidden
+  scrollbar-width: none
+  scroll-behavior: smooth
+  &::-webkit-scrollbar
+    display: none
+
+@font-face
+  font-family: 'Manrope', sans-serif
+  src: url('/fonts/Manrope-Variable.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+//snap blocks
+.content-block
+  min-height: 200vh
+  min-height: 200dvh
+  width: 100%
+  //border: 1px solid white
+  scroll-snap-align: start
+  scroll-snap-stop: always
+
+.content-top
+  padding-top: 200vh
+  scroll-snap-align: end
+  scroll-snap-stop: normal
+
+.content-bottom
+  padding-bottom: 100vh
+
+.snap-block
+  position: relative
+  height: 100vh
+  height: 100dvh
+  z-index: -1
+  scroll-snap-align: start
+  scroll-snap-stop: always
+
+
+// splittext animation specific
+.line
+  overflow: hidden !important
+  display: inline-block
+.char
+  will-change: transform
+  +hidden()
